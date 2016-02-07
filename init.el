@@ -7,11 +7,12 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar my-packages '())
+(defvar my-packages '(color-theme-sanityinc-tomorrow))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; Custom themes path
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;; Setup the theme
+(require 'color-theme-sanityinc-tomorrow)
+(color-theme-sanityinc-tomorrow--define-theme eighties)
